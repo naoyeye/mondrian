@@ -1,0 +1,80 @@
+<div id="main">
+    <header>
+        <div class="logo">
+            Wandou Labs - Mandrian
+        </div>
+        <div class="mondrian-logo">
+            Mandrian
+        </div>
+        <nav>
+            <ul class="ui tabular menu">
+                <li class="active item tab-sites">Sites</li>
+                <li class="item tab-demos">Demos</li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <article>
+        <section id="sites">
+            <ul>
+                <li>
+                    <figure>
+                        <figcaption>Site 1</figcaption>
+                        <img src="/public/screenshots/sites/1.png">
+                        <div class="tags">
+                            <span>3D</span>
+                            <span>CSS动画</span>
+                        </div>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <figcaption>Site 1</figcaption>
+                        <img src="/public/screenshots/sites/2.png">
+                    </figure>
+                </li>
+            </ul>
+        </section>
+
+        <section id="demos">
+            <ul>
+                <li>
+                    <figure>
+                        <figcaption>Demo 1</figcaption>
+                        <img src="/public/screenshots/demos/1.png">
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <figcaption>Demo 1</figcaption>
+                        <img src="/public/screenshots/demos/2.png">
+                    </figure>
+                </li>
+            </ul>
+        </section>
+    </article>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        var min = 0;
+        $('article > section').scroll(function(){
+            // console.log(min)
+            var st = $(this).scrollTop();
+
+            if(st > 60 && min === 0){
+                console.log('a')
+                // if (){
+                    $('body').addClass('min');
+                    min = 1;
+                // }
+            } else {
+                console.log('b')
+                $('body').removeClass('min');
+            }
+        })
+    })
+
+</script>
