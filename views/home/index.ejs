@@ -1,15 +1,19 @@
 <div id="main">
     <header>
-        <div class="logo">
-            Wandou Labs - Mandrian
-        </div>
-        <div class="mondrian-logo">
-            Mandrian
-        </div>
         <nav>
-            <ul class="ui tabular menu">
-                <li class="active item tab-sites">Sites</li>
-                <li class="item tab-demos">Demos</li>
+            <ul class="ui vertical inverted menu">
+                <li class="item tab-logo" data-tab="about">
+                    <i></i>
+                    <span>WandouLabs</span>
+                </li>
+                <li class="active item tab-sites" title="Sites" data-tab="sites">
+                    <i>S</i>
+                    <span>Sites</span>
+                </li>
+                <li class="item tab-demos" title="Demos" data-tab="demos">
+                    <i>D</i>
+                    <span>Demos</span>
+                </li>
             </ul>
         </nav>
     </header>
@@ -17,63 +21,65 @@
 
 
     <article>
-        <section id="sites">
+        <section id="sites" class="active">
             <ul>
-                <li>
-                    <figure>
-                        <figcaption>Site 1</figcaption>
-                        <img src="/public/screenshots/sites/1.png">
-                        <div class="tags">
-                            <span>3D</span>
-                            <span>CSS动画</span>
-                        </div>
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <figcaption>Site 1</figcaption>
-                        <img src="/public/screenshots/sites/2.png">
-                    </figure>
-                </li>
+                <% for(var i=0; i < siteList.length; i++) { %>
+                    <li>
+                        <a href="/site/<%= siteList[i] %>">
+                            <figure>
+                                <figcaption>Site 1</figcaption>
+                                <img src="/public/screenshots/sites/<%= siteList[i] %>.png">
+                            </figure>
+                        </a>
+                    </li>
+                <% } %>
             </ul>
         </section>
 
         <section id="demos">
             <ul>
-                <li>
-                    <figure>
-                        <figcaption>Demo 1</figcaption>
-                        <img src="/public/screenshots/demos/1.png">
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <figcaption>Demo 1</figcaption>
-                        <img src="/public/screenshots/demos/2.png">
-                    </figure>
-                </li>
+                <% for(var i=0; i < demoList.length; i++) { %>
+                    <li>
+                        <a href="/demo/<%= demoList[i] %>">
+                            <figure>
+                                <figcaption>Demo 1</figcaption>
+                                <img src="/public/screenshots/demos/<%= demoList[i] %>.png">
+                            </figure>
+                        </a>
+                    </li>
+                <% } %>
             </ul>
+        </section>
+        <section id="about">
+           <div>
+           <h2>说明</h2>
+           <p>截图放在 assets/public/screenshots/demos 和 assets/public/screenshots/sites  中， <br><br> 
+           把网站文件(img、js、css、index.html)放在 views/demo 和 views/site 中 ，<br><br>目录名为数字，按照 1、2、3 …… 的顺序递增。
+           </p>
+           </div>
         </section>
     </article>
 </div>
 
 <script type="text/javascript">
     $(function(){
-        var min = 0;
-        $('article > section').scroll(function(){
-            // console.log(min)
-            var st = $(this).scrollTop();
 
-            if(st > 60 && min === 0){
-                console.log('a')
-                // if (){
-                    $('body').addClass('min');
-                    min = 1;
-                // }
-            } else {
-                console.log('b')
-                $('body').removeClass('min');
-            }
+        var main = $('#main');
+
+        $('nav li').hover(function(){
+            main.addClass('showNav');
+        }, function(){
+            main.removeClass('showNav');
+        })
+
+        $('nav').on('click', 'li:not(.active)', function(){
+            var $t = $(this);
+            var tab = $t.data('tab');
+            $t.addClass('active').siblings('li').removeClass('active');
+            $('section').hide();
+            $('#' + tab).show();
+
+            $('section').animate({scrollTop:0},0);
         })
     })
 

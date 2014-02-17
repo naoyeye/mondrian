@@ -1,5 +1,5 @@
 /**
- * IndexController
+ * DemoController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -15,18 +15,28 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
+
+
 module.exports = {
-
-    /**
-        * Overrides for the settings in `config/controllers.js`
-        * (specific to IndexController)
-    */
-    _config: {
-
-    }
+    
+  
 
 
+  /**
+   * Overrides for the settings in `config/controllers.js`
+   * (specific to DemoController)
+   */
+  _config: {}
+
+  
 };
 
+module.exports = {
 
-console.log('tetetet')
+    index: function(req, res){
+        var id = req.param('id');
+        res.view({
+                _layoutFile: id + '/index.ejs',
+            })
+    }
+};
