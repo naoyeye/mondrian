@@ -28,7 +28,7 @@
                         <a href="/site/<%= siteList[i] %>">
                             <figure>
                                 <figcaption>Site 1</figcaption>
-                                <img src="/public/screenshots/sites/<%= siteList[i] %>.png">
+                                <img src="/pages/screenshots/sites/<%= siteList[i] %>.png">
                             </figure>
                         </a>
                     </li>
@@ -43,7 +43,7 @@
                         <a href="/demo/<%= demoList[i] %>">
                             <figure>
                                 <figcaption>Demo 1</figcaption>
-                                <img src="/public/screenshots/demos/<%= demoList[i] %>.png">
+                                <img src="/pages/screenshots/demos/<%= demoList[i] %>.png">
                             </figure>
                         </a>
                     </li>
@@ -51,11 +51,15 @@
             </ul>
         </section>
         <section id="about">
-           <div>
-           <h2>说明</h2>
-           <p>截图放在 assets/public/screenshots/demos 和 assets/public/screenshots/sites  中， <br><br> 
-           把网站文件(img、js、css、index.html)放在 views/demo 和 views/site 中 ，<br><br>目录名为数字，按照 1、2、3 …… 的顺序递增。
-           </p>
+            <div id="about-wrap">
+                <div id="about-cont">
+                    <div>
+                       <h2>说明</h2>
+                       <p>截图放在 assets/public/screenshots/demos 和 assets/public/screenshots/sites  中， <br><br> 
+                       把网站文件(img、js、css、index.html)放在 views/demo 和 views/site 中 ，<br><br>目录名为数字，按照 1、2、3 …… 的顺序递增。
+                       </p>
+                    </div>
+                </div>
            </div>
         </section>
     </article>
@@ -76,8 +80,8 @@
             var $t = $(this);
             var tab = $t.data('tab');
             $t.addClass('active').siblings('li').removeClass('active');
-            $('section').hide();
-            $('#' + tab).show();
+            $('section').removeClass('active').hide();
+            $('#' + tab).addClass('active').show();
 
             $('section').animate({scrollTop:0},0);
         })

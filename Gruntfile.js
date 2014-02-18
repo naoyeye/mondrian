@@ -16,8 +16,6 @@
 
 module.exports = function (grunt) {
 
-
-
   /**
    * CSS files to inject in order
    * (uses Grunt-style wildcard/glob/splat expressions)
@@ -29,7 +27,8 @@ module.exports = function (grunt) {
    */
 
   var cssFilesToInject = [
-    'linker/**/*.css'
+    'linker/**/*.css',
+    'views/site/1/css/style.css',
   ];
 
 
@@ -142,21 +141,36 @@ module.exports = function (grunt) {
       dev: {
         files: [
           {
-          expand: true,
-          cwd: './assets',
-          src: ['**/*.!(coffee)'],
-          dest: '.tmp/public'
-        }
+            expand: true,
+            cwd: './assets',
+            src: ['**/*.!(coffee)'],
+            dest: '.tmp/public'
+          },
+          // site
+          {
+            expand: true,
+            cwd: './views/site',
+            src: ['**/*.!(coffee)'],
+            dest: '.tmp/public/pages/site'
+          },
+          // demo
+          {
+            expand: true,
+            cwd: './views/demo',
+            src: ['**/*.!(coffee)'],
+            dest: '.tmp/public/pages/demo'
+          }
         ]
       },
+
       build: {
         files: [
           {
-          expand: true,
-          cwd: '.tmp/public',
-          src: ['**/*'],
-          dest: 'www'
-        }
+            expand: true,
+            cwd: '.tmp/public',
+            src: ['**/*'],
+            dest: 'www'
+          }
         ]
       }
     },

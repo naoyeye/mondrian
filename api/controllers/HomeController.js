@@ -47,6 +47,9 @@ function walkDemo(path){
 walkSite('views/site');
 walkDemo('views/demo');
 
+siteList = siteList.reverse();
+demoList = demoList.reverse();
+
 
 module.exports = {
 
@@ -64,8 +67,8 @@ module.exports = {
 
         // render
         res.view({
-            siteList : siteList.reverse(),
-            demoList : demoList.reverse()
+            siteList : siteList,
+            demoList : demoList
         })
     }
 

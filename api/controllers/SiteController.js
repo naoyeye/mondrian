@@ -1,5 +1,5 @@
 /**
- * CaseController
+ * SiteController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -33,8 +33,9 @@ module.exports = {
 
     index: function(req, res){
         var id = req.param('id');
+
         res.view({
-                _layoutFile: id + '/index.ejs',
-            })
+            _layoutFile: id + '/index.ejs',
+        })
     }
 };

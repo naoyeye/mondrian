@@ -314,13 +314,15 @@ article{
     bottom: 0;
     z-index: 2;
     background: #fff;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     transition: top 0.4s ease, left 0.4s ease;
 }
 
 figure{
     position: relative;
     /*padding: 10px;*/
-    margin: 0px 10px 10px 10px;
+    margin: 0px 10px 0px 10px;
     box-shadow: 0 0 3px rgba(0,0,0,0.1);
     background: #fff;
 }
@@ -342,34 +344,51 @@ section{
     height: auto;
     padding-top: 10px;
     width: 100%;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
 }
 
-section#sites{
+section li{
+    padding-bottom: 10px;
+}
+
+#sites{
     left: 0;
 }
-section#demos{
+#demos{
     right: 0;
     font-size: 0;
 }
-section#about{
+#about-wrap{
+    display: table;
+    width: 100%;
+    height: 100%;
     padding: 20px;
+    margin-top: -50px;
     text-align: center;
+    word-wrap: break-word;
+    /*TABLE-LAYOUT: fixed;*/
+    word-break:break-all;
     box-sizing:border-box;
 }
 
-section#about:before{
+/*section#about:before{
     content: "";
     height: 100%;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
-}
+}*/
 
-#about > div{
-    display: inline-block;
+#about-cont{
+    display: table-cell;
     vertical-align: middle;
+}
+#about-cont > div{
+/*    display: inline-block;
+    margin-top: -100px;
+    vertical-align: middle;
+    text-align: left;*/
+    max-width: 500px;
+    margin: 0 auto;
     text-align: left;
 }
 
@@ -391,6 +410,7 @@ section#demos figure{
     margin: 0 10px 10px 0;
 } 
 
+
 .tags{
     position: absolute;
     bottom: 10px;
@@ -407,17 +427,21 @@ section#demos figure{
     color: #fff;
 }
 
+section{
+    display: none!important;
+}
 section.active{
-    display: block;
+    display: block!important;
 }
 
 
+@media(min-width: 1200px){
+    #main.showNav article{
+        left: 200px;
+    }
 
-#main.showNav article{
-    left: 200px;
-}
-
-#main.showNav .ui.vertical.menu .active i:after{
-    left: 200px;
+    #main.showNav .ui.vertical.menu .active i:after{
+        left: 200px;
+    }
 }
 
