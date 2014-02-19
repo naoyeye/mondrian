@@ -36,7 +36,8 @@ module.exports = {
     index: function(req, res){
         var id = req.param('id');
         res.view({
-            _layoutFile: id + '/index.ejs',
+            id : id,
+            _layoutFile: 'index.ejs',
         })
     }
 };

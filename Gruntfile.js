@@ -27,8 +27,7 @@ module.exports = function (grunt) {
    */
 
   var cssFilesToInject = [
-    'linker/**/*.css',
-    'views/site/1/css/style.css',
+    'linker/**/*.css'
   ];
 
 
