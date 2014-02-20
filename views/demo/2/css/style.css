@@ -12,7 +12,7 @@ html, body {
 
 body{
     text-align: center;
-    background: url(../img/tweed.png) center center repeat;
+    background: url(../img/tweed.png) center center repeat fixed;
     /*"Open Sans", "Helvetica Neue" "Roboto",*/
     font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-weight: 300;
@@ -270,6 +270,9 @@ h2{
 /*Retina*/
 @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
 
+    body{
+        background-image: url(../img/tweed@2x.png);
+    }
     #mockup{
         background-image: url(../img/iphone-mockup@2x.png);
         background-size: 497px;
