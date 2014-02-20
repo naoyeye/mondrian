@@ -4,14 +4,16 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
     <meta name="viewport" content="width=1100">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
     <meta name="author" content="" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <title>Facebook Paper 'Like' Demo</title>
     <link rel="stylesheet" href="../pages/demo/2/css/style.css"/>
-    <style type="text/css">
-    *{padding: 0;margin: 0;}
-    </style>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -26,31 +28,40 @@
                 <div class="top-info">
                     <a href="###">
                         <!-- <img src="../pages/demo/2/img/avatar.jpg"> -->
-                        <img src="https://2.gravatar.com/avatar/92b3ae0b0b4b623e9af7ed4275bdf28e?d=https%3A%2F%2Fidenticons.github.com%2F2c716988ac1b99bd54ad746dd51d3c55.png&r=x&s=220">
-                        <span>Darnell Miller</span>
+                        <img class="avatar" src="https://2.gravatar.com/avatar/92b3ae0b0b4b623e9af7ed4275bdf28e?d=https%3A%2F%2Fidenticons.github.com%2F2c716988ac1b99bd54ad746dd51d3c55.png&r=x&s=220">
+                        <span class="author-name">Darnell Miller</span>
                     </a>
                 </div>
 
                 <div class="content">
-                    Just finished my first full marathon!
-                    monday · public
+                    <div class="content-inner">
+                        <p>
+                        Just finished my first full marathon!
+                        </p>
+                        <div class="content-info">
+                            <span>monday</span>
+                            <span>public</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bottom-bar">
-                    <div class="like-button">
-                        <i></i>
-                    </div>
+                    <div class="buttons">
+                        <div class="like-button button">
+                            <i class="fa fa-thumbs-up"></i>
+                        </div>
 
-                    <div class="comment-button">
-                        <i></i>
-                    </div>
+                        <div class="comment-button button">
+                            <i class="fa fa-comment"></i>
+                        </div>
 
-                    <div class="repost-button">
-                        <i></i>
+                        <div class="repost-button button">
+                            <i class="fa fa-share"></i>
+                        </div>
                     </div>
 
                     <div class="status">
-                        233 Likes 512 Comments
+                        <div class="post-count">233 Likes 512 Comments</div>
                         <div class="comment-action">
                             Writre a comment
                         </div>
@@ -63,6 +74,10 @@
 
 
 <script>
+$('.like-button').click(function(){
+    var $t = $(this);
+    $t.toggleClass('active');
+})
 </script>
 
 </html>
