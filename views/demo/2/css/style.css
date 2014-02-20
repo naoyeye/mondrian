@@ -322,6 +322,7 @@ h2{
 
     body{
         background-image: url(../img/tweed@2x.png);
+        background-size: 200px;
     }
     #mockup{
         background-image: url(../img/iphone-mockup@2x.png);
