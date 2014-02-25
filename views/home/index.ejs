@@ -7,12 +7,16 @@
                     <span>WandouLabs</span>
                 </li>
                 <li class="active item tab-sites" title="Sites" data-tab="sites">
-                    <i>S</i>
-                    <span>Sites</span>
+                    <a href="#site">
+                        <i>S</i>
+                        <span>Sites</span>
+                    </a>
                 </li>
                 <li class="item tab-demos" title="Demos" data-tab="demos">
-                    <i>D</i>
-                    <span>Demos</span>
+                    <a href="#demo">
+                        <i>D</i>
+                        <span>Demos</span>
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -68,6 +72,29 @@
 <script type="text/javascript">
     $(function(){
 
+        var href;
+
+        function checkLocation(){
+            href = window.location.href;
+            // var link;
+            if(href.indexOf('demo') > -1){
+                var $li = $('nav li[data-tab="demos"]');
+                $li.addClass('active').siblings('li').removeClass('active');
+                $('section').removeClass('active').hide();
+                $('#demos').addClass('active').show();
+            } else if(href.indexOf('site') > -1){
+                var $li = $('nav li[data-tab="sites"]');
+                $li.addClass('active').siblings('li').removeClass('active');
+                $('section').removeClass('active').hide();
+                $('#sites').addClass('active').show();
+            }
+
+            console.log(href)
+        }
+
+        checkLocation();
+
+// /=====/
         var main = $('#main');
 
         $('nav li').hover(function(){
@@ -77,6 +104,8 @@
         })
 
         $('nav').on('click', 'li:not(.active)', function(){
+
+            console.log(1);
             var $t = $(this);
             var tab = $t.data('tab');
             $t.addClass('active').siblings('li').removeClass('active');
@@ -84,6 +113,9 @@
             $('#' + tab).addClass('active').show();
 
             $('section').animate({scrollTop:0},0);
+            setTimeout(function(){
+                checkLocation()
+            }, 150)
         })
     })
 
